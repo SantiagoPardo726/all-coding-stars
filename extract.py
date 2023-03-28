@@ -43,6 +43,7 @@ def verifyHindi(url:str):
         return True
 
 def verifyImage(url):
+    
     webDriver = createDriver()
     webDriver.get(url)
     ret = False
@@ -68,6 +69,7 @@ def verifyDropDownMenu(url):
     driver.get(url)
 
     try:
+        time.sleep(1)
         element = driver.find_element(By.XPATH,"//button[@data-name='LARGE_UP_MAIN_NAV_TRIGGER'][contains(text(), 'पाठ्यक्रम')]")
 
    
@@ -91,6 +93,7 @@ def verifyInside(url):
     links = webDriver.find_elements(By.TAG_NAME,"a")
     falses = 0
     for i in random.sample(links,5):
+        time.sleep(1)
         url = i.get_attribute("href")
         print(verifyHindi(url))
         if not verifyHindi(url):
