@@ -89,9 +89,10 @@ def verifyInside(url):
     webDriver = createDriver()
     webDriver.get(url)
     links = webDriver.find_elements(By.TAG_NAME,"a")
+    falses = 0
     for i in random.sample(links,5):
         url = i.get_attribute("href")
         print(verifyHindi(url))
         if not verifyHindi(url):
-            return False
-    return True
+            falses += 1
+    return falses<2
